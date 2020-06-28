@@ -5,7 +5,7 @@
  * Plugin URI: https://www.importwp.com
  * Description: Allow ImportWP to import xlsx files, by convert an xlsx file into csv.
  * Author: James Collings <james@jclabs.co.uk>
- * Version: 2.0.0 
+ * Version: 2.0.1 
  * Author URI: https://www.importwp.com
  * Network: True
  */
