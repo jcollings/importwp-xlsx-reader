@@ -2,7 +2,7 @@
 
 Requires Import WP: 2.5.0
 
-**Version: 2.1.0**
+**Version: 2.1.1**
 
 ![Microsoft XLSX File Importer Addon](./assets/iwp-addon-xlsx.png)
 
