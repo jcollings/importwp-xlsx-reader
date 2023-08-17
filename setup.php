@@ -29,3 +29,13 @@ function iwp_xlsx_read_file_matching_ext($input_filepath)
 }
 
 add_action('iwp/importer/file_uploaded', 'iwp_xlsx_read_file_matching_ext', 10);
+
+// set xlsx filetype to csv
+add_filter('iwp/get_filetype_from_ext', function ($filetype, $filename) {
+
+    if (preg_match('/\.xlsx$/', $filename)) {
+        $filetype = 'csv';
+    }
+
+    return $filetype;
+}, 10, 2);
