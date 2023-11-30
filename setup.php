@@ -1,25 +1,19 @@
 <?php
 
-use ImportWPAddon\XLSX\XLSXReader;
-
 function iwp_xlsx_read_file_matching_ext($input_filepath)
 {
     $file_parts = explode('.', basename($input_filepath));
-    if ($file_parts[count($file_parts) - 1] !== 'xlsx') {
+    if (!in_array('xlsx', $file_parts) && !in_array('xls', $file_parts)) {
         return;
     }
 
-    $xlsx = new XLSXReader($input_filepath);
-    $sheets = $xlsx->getSheetNames();
-    if (empty($sheets)) {
-        return;
-    }
+    $inputFileType = in_array('xlsx', $file_parts) ? 'Xlsx' : 'Xls';
 
-    $sheet_name = array_shift($sheets);
-    $data = $xlsx->getSheetData($sheet_name);
-    if (empty($data)) {
-        return;
-    }
+    $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+    $spreadsheet = $reader->load($input_filepath);
+
+    $worksheet = $spreadsheet->getActiveSheet();
+    $data = $worksheet->toArray();
 
     $fh = fopen($input_filepath, 'w');
     foreach ($data as $row) {
@@ -33,7 +27,7 @@ add_action('iwp/importer/file_uploaded', 'iwp_xlsx_read_file_matching_ext', 10);
 // set xlsx filetype to csv
 add_filter('iwp/get_filetype_from_ext', function ($filetype, $filename) {
 
-    if (preg_match('/\.xlsx$/', $filename)) {
+    if (preg_match('/\.xlsx?$/', $filename)) {
         $filetype = 'csv';
     }
 

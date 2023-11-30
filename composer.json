@@ -1,0 +1,15 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.5"
+    },
+    "config": {
+        "platform": {
+            "php": "7.0"
+        }
+    },
+    "autoload": {
+        "psr-0": {
+            "ImportWPAddon\\XLSX": "class/"
+        }
+    }
+}
