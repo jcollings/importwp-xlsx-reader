@@ -2,7 +2,7 @@
 
 Requires Import WP: 2.5.0
 
-**Version: 2.2.0**
+**Version: __STABLE_TAG__**
 
 ![Microsoft XLSX File Importer Addon](./assets/iwp-addon-xlsx.png)
 
