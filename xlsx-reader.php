@@ -5,7 +5,7 @@
  * Plugin URI: https://www.importwp.com
  * Description: Allow Import WP to import xlsx files, by convert an xlsx file into csv.
  * Author: James Collings <james@jclabs.co.uk>
- * Version: 2.1.1 
+ * Version: 2.2.0 
  * Author URI: https://www.importwp.com
  * Network: True
  */
@@ -13,7 +13,7 @@
 $base_path = dirname(__FILE__);
 
 if (class_exists('ZipArchive')) {
-    require_once $base_path . '/class/autoload.php';
+    require_once $base_path . '/vendor/autoload.php';
     require_once $base_path . '/setup.php';
 
     // Install updater
